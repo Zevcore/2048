@@ -35,8 +35,8 @@ public class Game extends JPanel implements KeyListener, Runnable {
     }
 
     private void update() {
-        Keyboard.update();
         board.update();
+        Keyboard.update();
     }
 
     private void render() {
