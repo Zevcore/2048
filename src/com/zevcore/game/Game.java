@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.security.Key;
 
 public class Game extends JPanel implements KeyListener, Runnable {
 
@@ -30,7 +31,13 @@ public class Game extends JPanel implements KeyListener, Runnable {
     }
 
     private void update() {
-
+        if(Keyboard.pressed[KeyEvent.VK_SPACE]) {
+            System.out.println("hit space");
+        }
+        if(Keyboard.typed(KeyEvent.VK_RIGHT)) {
+            System.out.println("hit right");
+        }
+        Keyboard.update();
     }
 
     private void render() {
@@ -117,11 +124,11 @@ public class Game extends JPanel implements KeyListener, Runnable {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        Keyboard.keyPressed(e);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        Keyboard.keyReleased(e);
     }
 }
